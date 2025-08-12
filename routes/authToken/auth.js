@@ -224,4 +224,41 @@ router.post("/create", requireECDH, async (req, res) => {
   }
 });
 
+// 在你的auth.js路由文件中添加退出接口
+router.post("/logout", (req, res) => {
+  const sessionId = req.sessionID; // 获取当前会话ID
+
+  try {
+    // 1. 清除ECDH相关的会话数据（共享密钥、密钥对）
+    ecdhMap.delete(sessionId);
+    sharedSecretMap.delete(sessionId);
+
+    // 2. 清除session中存储的用户信息（如验证码、登录状态等）
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("清除会话失败:", err);
+        return res.status(500).json({
+          code: 500,
+          message: "退出失败，请重试",
+        });
+      }
+
+      // 3. 可选：清除JWT相关的黑名单（如果使用了JWT黑名单机制）
+      // 例如：如果用redis存储已失效的token，这里可以添加当前token到黑名单
+
+      // 4. 返回成功响应
+      res.json({
+        code: 200,
+        message: "退出成功",
+      });
+    });
+  } catch (error) {
+    console.error("退出接口异常:", error);
+    res.status(500).json({
+      code: 500,
+      message: "服务器错误，退出失败",
+    });
+  }
+});
+
 module.exports = router;
