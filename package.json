@@ -9,15 +9,20 @@
   "dependencies": {
     "@types/sequelize": "^4.28.20",
     "cookie-parser": "~1.4.7",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "debug": "~4.4.1",
     "dotenv": "^17.1.0",
     "express": "~5.1.0",
+    "express-session": "^1.18.2",
     "http-errors": "~2.0.0",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "~1.10.0",
     "mysql2": "^3.14.1",
     "pug": "^3.0.3",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "svg-captcha": "^1.4.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
