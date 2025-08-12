@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/sequelize": "^4.28.20",
+    "bcrypt": "^6.0.0",
     "cookie-parser": "~1.4.7",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",

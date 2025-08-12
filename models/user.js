@@ -31,6 +31,14 @@ User.init(
       type: DataTypes.STRING,
       defaultValue: "",
     },
+    account: {
+      type: DataTypes.STRING,
+      defaultValue: "",
+    },
+    password: {
+      type: DataTypes.STRING,
+      defaultValue: "",
+    },
   },
   {
     sequelize,
