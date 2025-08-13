@@ -224,7 +224,7 @@ router.post("/create", requireECDH, async (req, res) => {
   }
 });
 
-// 在你的auth.js路由文件中添加退出接口
+// 退出接口
 router.post("/logout", (req, res) => {
   const sessionId = req.sessionID; // 获取当前会话ID
 
