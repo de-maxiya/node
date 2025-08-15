@@ -87,7 +87,15 @@ const updateUserSchema = Joi.object({
 
 // 4. 路径参数（id）验证
 const idParamSchema = Joi.object({
-  id: Joi.number().integer().min(1).required().message("id必须是正整数"),
+  id: Joi.number()
+    .integer()
+    .message("id必须是整数")
+    .min(1)
+    .message("id不能小于1")
+    .required()
+    .messages({
+      "any.required": "id必须是正整数", // 给 required 规则设置提示
+    }),
 });
 
 module.exports = {
