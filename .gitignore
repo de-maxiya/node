@@ -1,6 +1,6 @@
 # 忽略 node_modules 文件夹
 node_modules/
-.env  
+# .env  
 .DS_Store    
 dist/        
 *.log 
